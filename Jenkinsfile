@@ -104,13 +104,5 @@ node("nodejs"){
             message
         )
         
-        //Send message to alert channel only if failed or restore build success
-        if (!success || (success && !previousBuildSuccess)) {
-             sendTelegramChannelMessage(
-                env.telegramAlertChannelBotApiToken,
-                env.telegramAlertChannelChatId,
-                message
-            )
-        }
     }
 }
