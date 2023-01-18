@@ -60,7 +60,7 @@ node("nodejs"){
 
         if (success) {
             catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
-                sh "npm install"
+                sh "yurn install"
             }
         }
     }
