@@ -77,42 +77,42 @@ export class TransactionsController {
     return this.transactionsService.getTransactions(user);
   }
 
- // @Patch(':transactionId')
- // @ApiOperation({ summary: 'Update transaction' })
- // @ApiBadRequestResponse({ description: 'Validation error' })
- // @ApiUnauthorizedResponse({ description: 'Bearer authorization failed' })
- // @ApiNotFoundResponse({
- //   description: 'Transaction or transaction category not found',
- //  })
- //  @ApiForbiddenResponse({ description: 'User does not owns transaction' })
- //  @ApiOkResponse({
- //   description: 'Transaction updated',
- //   type: TransactionSerializer,
- // })
- // async updateTransaction(
- //   @DUser() user: UserEntity,
- //   @Param('transactionId') transactionId: string,
- //   @Body() updateTransactionDto: UpdateTransactionDto,
- // ): Promise<TransactionSerializer> {
- //   return this.transactionsService.updateTransaction(
- //     transactionId,
- //     updateTransactionDto,
- //     user,
- //   );
- // }
+ @Patch(':transactionId')
+ @ApiOperation({ summary: 'Update transaction' })
+ @ApiBadRequestResponse({ description: 'Validation error' })
+ @ApiUnauthorizedResponse({ description: 'Bearer authorization failed' })
+ @ApiNotFoundResponse({
+   description: 'Transaction or transaction category not found',
+  })
+  @ApiForbiddenResponse({ description: 'User does not owns transaction' })
+  @ApiOkResponse({
+   description: 'Transaction updated',
+   type: TransactionSerializer,
+ })
+ async updateTransaction(
+   @DUser() user: UserEntity,
+   @Param('transactionId') transactionId: string,
+   @Body() updateTransactionDto: UpdateTransactionDto,
+ ): Promise<TransactionSerializer> {
+   return this.transactionsService.updateTransaction(
+     transactionId,
+     updateTransactionDto,
+     user,
+   );
+ }
 
- //  @Delete(':transactionId')
- //  @HttpCode(204)
- // @ApiOperation({ summary: 'Remove transaction' })
- //  @ApiBadRequestResponse({ description: 'Validation error' })
- //  @ApiUnauthorizedResponse({ description: 'Bearer authorization failed' })
- //  @ApiNotFoundResponse({ description: 'Transaction not found' })
- //  @ApiForbiddenResponse({ description: 'User does not owns transaction' })
- //  @ApiNoContentResponse({ description: 'Transaction deleted' })
- //  async deleteTransaction(
- //   @DUser() user: UserEntity,
- //   @Param('transactionId') transactionId: string,
- // ): Promise<void> {
- //   return this.transactionsService.deleteTransaction(transactionId, user);
- //  }
+  @Delete(':transactionId')
+  @HttpCode(204)
+ @ApiOperation({ summary: 'Remove transaction' })
+  @ApiBadRequestResponse({ description: 'Validation error' })
+  @ApiUnauthorizedResponse({ description: 'Bearer authorization failed' })
+  @ApiNotFoundResponse({ description: 'Transaction not found' })
+  @ApiForbiddenResponse({ description: 'User does not owns transaction' })
+  @ApiNoContentResponse({ description: 'Transaction deleted' })
+  async deleteTransaction(
+   @DUser() user: UserEntity,
+   @Param('transactionId') transactionId: string,
+ ): Promise<void> {
+   return this.transactionsService.deleteTransaction(transactionId, user);
+  }
 }
