@@ -97,7 +97,7 @@ export class TransactionsService {
       category: {
         id: updateTransactionDto.categoryId && transaction.categoryId,
       },
-      balanceAfter: transaction.amount - amountDiff,
+      // balanceAfter: transaction.amount - amountDiff,
     });
 
     return this.transactionsRepository.save(transactionToUpdate);
